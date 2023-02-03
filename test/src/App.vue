@@ -30,7 +30,7 @@
       <div>
       <!--   <img src="./assets/images/test.jpg"/> -->
         <button id="testBt" type="button"  @:click="testFn(1)">테스트버튼</button>
-        <button id="testBt" type="button"  @:click="openMadal = true">팝업1</button>
+        <button id="testBt" type="button"  @:click="openMadal = true">팝업2</button>
       </div>
     </div>
 
