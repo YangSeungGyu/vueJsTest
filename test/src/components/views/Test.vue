@@ -1,14 +1,11 @@
-
 <template>
-    <div style="background-color: red;">
-    헤더
+    <div>
+        테스트 페이지
     </div>
 </template>
 
-
 <script>
     export default {
-        name: "Header"
+        name: "Test"
     }
 </script>
-
