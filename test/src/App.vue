@@ -30,6 +30,7 @@ export default {
       ,menuList : [
                     {'nm':'HOME','url':'/'},
                     {'nm':'MENU1','url':'/test'},
+                    {'nm':'로그인','url':'/login'},
                   ]
     }
   },
