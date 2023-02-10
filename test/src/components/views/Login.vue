@@ -22,22 +22,28 @@
 				const pwd = crypto.createHmac('sha256','mySecretKey').update('1234').digest('base64');
 				//필요 결과 : oSIzN+sNkxN7HDeJ6QznoSCXlKjOx7B2FA4bCc6dOnA=
 				console.log(pwd);
-				this.$axios.post('http://localhost:8888/login' 
+				this.$axios.post('/api/login' 
 				,JSON.stringify({
 						userId : "admin",
 						userPwd : pwd
 				})
 				,{
 					headers: {
-						"Content-Type": `application/json`
+						"Content-Type": 'application/json'
 					}
 				}
 				)
 				.then(res => {
 					console.log(res.headers.authorization); 
+					let userData = {
+						'token':res.headers.authorization
+						,'userNm':'관리자'
+					};
+					this.$store.dispatch('saveToken', userData.token);
+					this.$router.push('/'); // url  이동
 				})
 				.catch(error => {
-					console.log(error.data); 
+					console.log(error); 
 				});
 			}
 		},
