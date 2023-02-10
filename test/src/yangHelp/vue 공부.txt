@@ -1,0 +1,108 @@
+nodejs 설치
+
+
+VSCode 개발툴
+
+open flder로 경로 설정
+
+터미널 : 
+vue cli 설치
+npm install -g @vue/cli
+
+왼쪽 Extensions에서 
+ vetur, html css support,vue 3 snippets 검색 설치
+
+프로젝트 생성
+vue create test /삭제 npm uninstall @test -g
+----------------------------
+* PSSecurityException 보안이슈 발생시 
+  - 실행창에서 windows powerSell 실행
+  - ExecutionPolicy 로 확인
+  -  Set-ExecutionPolicy RemoteSigned 로 변경
+----------------------------
+
+cd test < 경로 프로젝트로 변경
+vue-cli-service serve  //프로젝트 실행
+
+npm install vue-router --save 라우터 설치(원페이지)
+
+src>components >layout 폴더생성
+
+
+npm install axios --save  ajax 통신을 위해
+
+npm install vuex --save 토큰등 저장소
+npm install vuex-persistedstate     localstorage 저장소(vuex 새로고침 날아감 방지)
+
+================터미널 각종 명령어=============================
+---------------------------------
+프로젝트 실행 npm run serve - syscall open에러 npm update
+---------------------------------
+
+기타
+clear < 터미널 지우기
+
+vue --version
+vue cli --version 
+
+npm 설치한거 삭제 install ->uninstall 
+===================GIT==========================
+깃 올리기 :::
+깃설치 : https://git-scm.com/download/win
+프로젝트 폴더에서 왼쪽 source control 누르고 initialize repository 클릭
+
+터미널 창 열고 
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/YangSeungGyu/vueJsTest.git
+git config user.email "didtmdrb18@naver.com"
+git config user.name "YangSeungGyu"
+깃허브 연결 주소 확인 git remote -v
+git push -u origin main
+
+커밋 명령어
+git add .
+git commit -m "커밋 테스트"
+git push
+혹은 왼쪽 공유 버튼 사용(커밋메시지 입력해야됨)
+============각종 에러===============
+
+
+error  Component name "Home" should always be multi-word  vue/multi-word-component-names
+해결 package.json "rules": {
+      "vue/multi-word-component-names" : 0
+    }
+
+error  Mixed spaces and tabs  no-mixed-spaces-and-tabs
+  "rules": {
+      "no-mixed-spaces-and-tabs": 0
+    }
+------
+error 'axios' is defined but never used no-unused-vars
+import axios from 'axios'//ajax 
+app.config.globalProperties.$axios = axios; <이거
+
+------
+sha256 에러 - Module not found: Error: Can't resolve 'crypto'
+
+npm install --save node-polyfill-webpack-plugin
+
+vue.config.js 에추가 :
+const { defineConfig } = require("@vue/cli-service");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+module.exports = defineConfig({
+  transpileDependencies: true,
+  lintOnSave: false,
+  configureWebpack: {
+    plugins: [new NodePolyfillPlugin()],
+    optimization: {
+      splitChunks: {
+        chunks: "all",
+      },
+    },
+  },
+});
+=============================================
+
+
