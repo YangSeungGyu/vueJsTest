@@ -39,7 +39,7 @@
 						'token':res.headers.authorization
 						,'userNm':'관리자'
 					};
-					this.$store.dispatch('saveToken', userData.token);
+					this.$store.dispatch('saveUser', userData);
 					this.$router.push('/'); // url  이동
 				})
 				.catch(error => {

@@ -1,8 +1,10 @@
 import { createStore } from 'vuex';
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
     state: {
-        token: null,
+        token: null
+        ,userNm: null
     },
     getters: {
         isLogin(state){
@@ -13,10 +15,17 @@ export default createStore({
         setToken(state, _token){
             state.token = _token;
         }
+        ,setUserNm(state, _userNm){
+            state.userNm = _userNm;
+        }
     },
     actions: { // dispatch 로 부를 수 있다.
-         saveToken:({commit} , _token) => {
-            commit('setToken' , _token);
+         saveUser:({commit} , _data) => {
+            commit('setToken' , _data.token);
+            commit('setUserNm' , _data.userNm);
         }
     }
+    ,plugins : [ createPersistedState({
+        paths: ["token","userNm"] //새로고침 이후 지속저장
+    }) ],
 });

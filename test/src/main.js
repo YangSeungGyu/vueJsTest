@@ -7,7 +7,6 @@ import store  from './store'
 
 import axios from 'axios'//ajax 
 
-//const storage = createStore(store)
 
 const app = createApp(App)
 app.use(router)  // 라우터 사용

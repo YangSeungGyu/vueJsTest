@@ -13,6 +13,9 @@
           <button id="testBt" type="button"  @:click="testFn(1)">테스트버튼</button>
           <button id="testBt" type="button"  @:click="openMadal = true">팝업2</button>
         </div>
+        <div id="popup" class="black-bg" v-if="isLogin">
+          로그인됨 : {{getToken}}
+        </div>
       </div>
   </template> 
 <script>
@@ -33,10 +36,22 @@ export default {
     }
   },
   methods : {
+    chekToekn(){
+      alert(thif.getToken());
+    }
   },
   components: {
-
+   
   }
+  ,computed: {
+    //이건 함수가 아니라 data처럼 사용됨
+    isLogin(){ 
+        return this.$store.getters.isLogin;
+    }
+    ,getToken() {
+        return this.$store.state.token;
+    } 
+},
 }
 </script>
 
