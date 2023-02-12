@@ -15,6 +15,8 @@
         </div>
         <div id="popup" class="black-bg" v-if="isLogin">
           로그인됨 : {{getToken}}
+          <br/>
+          <button type="button"  @:click="loginTestApi()"> 로그인 후 api</button>
         </div>
       </div>
   </template> 
@@ -37,8 +39,17 @@ export default {
   },
   methods : {
     chekToekn(){
-      alert(thif.getToken());
+      alert(this.getToken());
     }
+   ,loginTestApi(){
+     let data = {};
+     console.log(this);
+      comm.ajaxPost('/api/testApi1',data,this)
+      .then(//promise
+        result => console.log(result)
+      );
+      
+   }
   },
   components: {
    
@@ -51,6 +62,10 @@ export default {
     ,getToken() {
         return this.$store.state.token;
     } 
+    ,getRefreshToken() {
+        return this.$store.state.refreshToken;
+    } 
+    
 },
 }
 </script>

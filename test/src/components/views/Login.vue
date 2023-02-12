@@ -17,7 +17,7 @@
         name: "Login"
 		,
 		methods: {
-			login(){	
+			login(){					
 				//const pwd = crypto.createHmac('sha256','mySecretKey').update('1234').digest('hex');
 				const pwd = crypto.createHmac('sha256','mySecretKey').update('1234').digest('base64');
 				//필요 결과 : oSIzN+sNkxN7HDeJ6QznoSCXlKjOx7B2FA4bCc6dOnA=
@@ -34,9 +34,10 @@
 				}
 				)
 				.then(res => {
-					console.log(res.headers.authorization); 
+					console.log(res); 
 					let userData = {
 						'token':res.headers.authorization
+						,'refreshToken':res.data.data.jwtRefreshToken
 						,'userNm':'관리자'
 					};
 					this.$store.dispatch('saveUser', userData);
